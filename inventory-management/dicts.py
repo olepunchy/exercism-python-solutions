@@ -11,15 +11,10 @@ def create_inventory(items):
     """
     items_dict = {}
     for item in items:
+        if item in items_dict:
+            items_dict[item] += 1
 
-        found = False
-        for key in items_dict.keys():
-
-            if key == item:
-                items_dict[item] += 1
-                found = True
-
-        if not found:
+        else:
             items_dict[item] = 1
 
     return items_dict
@@ -33,23 +28,11 @@ def add_items(inventory, items):
     :param items: list - list of items to update the inventory with.
     :return:  dict - the inventory dictionary update with the new items.
     """
-    if not bool(inventory):
-        inventory = {}
-        for item in items:
-            if item in inventory:
-                inventory[item] += 1
-
-            else:
-                inventory[item] = 1
-
-        return inventory
-
-    else:
-        for item in items:
-            if item in inventory:
-                inventory[item] += 1
-            else:
-                inventory[item] = 1
+    for item in items:
+        if item in inventory:
+            inventory[item] += 1
+        else:
+            inventory[item] = 1
 
     return inventory
 
