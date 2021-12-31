@@ -5,7 +5,7 @@ def is_isogram(string):
     """
     Determine if the input string is an isogram.
 
-    param: str to test for beign an isogram
+    param: str to test if it is an isogram
     return: True or False if the input is an isogram
     """
     # An empty string is an isogram
